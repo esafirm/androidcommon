@@ -36,9 +36,11 @@ public class Bundles {
     return bundle.getParcelableArrayList(key);
   }
 
-  public static Bundle wrap(Parcelable o) {
+  public static Bundle wrap(Parcelable... o) {
     Bundle bundle = new Bundle();
-    bundle.putParcelable(o.getClass().getSimpleName(), o);
+    for (Parcelable parcelable : o) {
+      bundle.putParcelable(parcelable.getClass().getSimpleName(), parcelable);
+    }
     return bundle;
   }
 

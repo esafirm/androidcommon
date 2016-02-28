@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.incendiary.androidcommon;
+package com.incendiary.androidcommon.android.text;
 
 import android.support.annotation.Nullable;
 
@@ -27,7 +27,7 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.regex.Pattern;
+import java.util.Locale;
 
 /**
  * Utilities for working with strings, like splitting, url-encoding, and MD5 digests.
@@ -36,12 +36,27 @@ import java.util.regex.Pattern;
  */
 public class Strings {
 
+  /* --------------------------------------------------- */
+  /* > Android */
+  /* --------------------------------------------------- */
+
   /**
    * equivalent to TextUtils.isEmpty
    **/
   public static boolean isEmpty(@Nullable CharSequence str) {
     return str == null || str.length() == 0;
   }
+
+  /**
+   * Locale Default
+   **/
+  public static String format(String format, Object... o) {
+    return String.format(Locale.getDefault(), format, o);
+  }
+
+  /* --------------------------------------------------- */
+  /* > Non Android */
+  /* --------------------------------------------------- */
 
   /**
    * Splits a String based on a single character, which is usually faster than regex-based String.split().
@@ -286,10 +301,5 @@ public class Strings {
       return "";
     }
 
-  }
-
-  public static boolean __isValidEmail(String email) {
-    // TODO compile and cache pattern using a ThreadLocal
-    return Pattern.matches("^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\\.([a-zA-Z])+([a-zA-Z])+", email);
   }
 }

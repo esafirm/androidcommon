@@ -16,7 +16,7 @@
 
 package com.incendiary.androidcommon.io;
 
-import com.incendiary.androidcommon.Strings;
+import com.incendiary.androidcommon.android.text.Strings;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;

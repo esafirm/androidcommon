@@ -10,7 +10,7 @@ public class Animates {
 
   public static void visibility(final View view, final boolean isVisible) {
     if (isVisible) {
-      view.setAlpha(0);
+      ViewCompat.setAlpha(view, 0);
       view.setVisibility(View.VISIBLE);
     }
 
@@ -23,6 +23,21 @@ public class Animates {
         public void run() {
           if (!isVisible)
             view.setVisibility(View.GONE);
+        }
+      });
+  }
+
+  public static void zoomInZoomOut(final View view) {
+    ViewCompat.animate(view)
+      .scaleX(1.2f).scaleY(1.2f)
+      .setDuration(200)
+      .withEndAction(new Runnable() {
+        @Override
+        public void run() {
+          ViewCompat.animate(view)
+            .scaleY(1f).scaleX(1f)
+            .setDuration(200)
+            .setListener(null);
         }
       });
   }

@@ -1,12 +1,15 @@
 package com.incendiary.androidcommon.android;
 
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.provider.MediaStore;
 
 import com.incendiary.androidcommon.android.helper.Startable;
+
+import java.io.File;
 
 /**
  * Created by esa on 10/02/16, with awesomeness
@@ -75,5 +78,18 @@ public class Intents {
   public static void dial(String phoneNo) {
     Intent intent = new Intent(Intent.ACTION_DIAL, Uri.fromParts("tel", phoneNo, null));
     ContextProvider.get().startActivity(intent);
+  }
+
+  public static void viewAction(Context context, String data) {
+    context.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(data)));
+  }
+
+
+  public static void shareFile(Context context, File file, String mimeType) {
+    Intent intent = new Intent(Intent.ACTION_SEND);
+    intent.setType(mimeType);
+    intent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(file));
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    context.startActivity(intent);
   }
 }

@@ -1,5 +1,8 @@
 package com.incendiary.androidcommon.etc;
 
+import java.util.Collection;
+import java.util.List;
+
 /**
  * Created by esa on 26/02/16, with awesomeness
  */
@@ -11,17 +14,26 @@ public class Values {
       : val1;
   }
 
-  /**
-   * @return true if not null and true
-   **/
   public static boolean isTrue(Boolean aBoolean) {
     return aBoolean != null && aBoolean;
   }
 
-  /**
-   * @return true if null or {@code false}
-   **/
   public static boolean isFalse(Boolean aBoolean) {
     return aBoolean == null || !aBoolean;
+  }
+
+  /**
+   * Check if collection is null or empty
+   **/
+  public static boolean isEmpty(Collection<?> objects) {
+    return objects == null || objects.isEmpty();
+  }
+
+  /**
+   * Get first value of list or null
+   **/
+  public static <T> T first(List<T> list) {
+    if (isEmpty(list)) return null;
+    return list.get(0);
   }
 }

@@ -1,6 +1,9 @@
 package com.incendiary.androidcommon.android;
 
 import android.content.Context;
+import android.support.annotation.ColorInt;
+import android.support.annotation.ColorRes;
+import android.support.v4.content.ContextCompat;
 
 /**
  * Created by esa on 27/02/16, with awesomeness
@@ -44,5 +47,14 @@ public class ContextProvider {
 
   public static Context get() {
     return getInstance().getContext();
+  }
+
+  /* --------------------------------------------------- */
+  /* > Convenience Methods */
+  /* --------------------------------------------------- */
+
+  @ColorInt
+  public static int getColor(@ColorRes int color) {
+    return ContextCompat.getColor(get(), color);
   }
 }

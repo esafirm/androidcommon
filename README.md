@@ -1,7 +1,8 @@
-# androidcommon
+## Setup
 
-## Add to your project 
-```
+Add this to your `build.gradle` file
+
+```groovy
 allprojects {
 		repositories {
 			...
@@ -9,8 +10,9 @@ allprojects {
 		}
 	}
 ```
-```
+```java
 dependencies {
-	        compile 'com.github.esafirm:androidcommon:0.2.5'
+	com.github.esafirm.androidcommon:recyclerview:0.3.2
+	com.github.esafirm.androidcommon:app:0.3.2
 	}
 ```

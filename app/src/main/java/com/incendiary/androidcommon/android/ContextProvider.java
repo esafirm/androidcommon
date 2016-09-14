@@ -1,8 +1,10 @@
 package com.incendiary.androidcommon.android;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
+import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
 
 /**
@@ -10,51 +12,55 @@ import android.support.v4.content.ContextCompat;
  */
 public class ContextProvider {
 
-  private static ContextProvider mInstance;
+    private static ContextProvider mInstance;
 
-  private static ContextProvider getInstance() {
-    if (mInstance == null) {
-      mInstance = new ContextProvider();
+    private static ContextProvider getInstance() {
+        if (mInstance == null) {
+            mInstance = new ContextProvider();
+        }
+        return mInstance;
     }
-    return mInstance;
-  }
 
-  private Context mContext;
+    private Context mContext;
 
-  private ContextProvider() {
-  }
+    private ContextProvider() {
+    }
 
-  /**
-   * Should be application context
-   */
-  private void init(Context context) {
-    mContext = context;
-  }
+    /**
+     * Should be application context
+     */
+    private void init(Context context) {
+        mContext = context;
+    }
 
-  private Context getContext() {
-    if (mContext == null)
-      throw new IllegalStateException("Must call init first before getContext()");
-    return mContext;
-  }
+    private Context getContext() {
+        if (mContext == null)
+            throw new IllegalStateException("Must call init first before getContext()");
+        return mContext;
+    }
 
   /* --------------------------------------------------- */
   /* > Public */
   /* --------------------------------------------------- */
 
-  public static void install(Context context) {
-    getInstance().init(context);
-  }
+    public static void install(Context context) {
+        getInstance().init(context);
+    }
 
-  public static Context get() {
-    return getInstance().getContext();
-  }
+    public static Context get() {
+        return getInstance().getContext();
+    }
 
   /* --------------------------------------------------- */
   /* > Convenience Methods */
   /* --------------------------------------------------- */
 
-  @ColorInt
-  public static int getColor(@ColorRes int color) {
-    return ContextCompat.getColor(get(), color);
-  }
+    @ColorInt
+    public static int getColor(@ColorRes int color) {
+        return ContextCompat.getColor(get(), color);
+    }
+
+    public static Drawable getDrawable(@DrawableRes int drawable) {
+        return ContextCompat.getDrawable(get(), drawable);
+    }
 }

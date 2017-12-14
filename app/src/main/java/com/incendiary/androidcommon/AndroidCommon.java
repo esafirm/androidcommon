@@ -54,7 +54,7 @@ public class AndroidCommon {
   public void install() {
     ContextProvider.install(application);
 
-    String tag = Strings.isEmpty(logTag)
+    String tag = Strings.isNullOrEmpty(logTag)
       ? application.getPackageName()
       : logTag;
 

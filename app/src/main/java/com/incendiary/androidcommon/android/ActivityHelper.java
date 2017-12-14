@@ -3,10 +3,6 @@ package com.incendiary.androidcommon.android;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 
-
-/**
- * Created by esa on 07/08/15, with awesomeness
- */
 public class ActivityHelper {
 
   public static void setTitle(AppCompatActivity activity, int title) {

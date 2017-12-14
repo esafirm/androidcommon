@@ -4,10 +4,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 /**
- * Created by esafirm on 9/2/16.
- */
-
-/**
  * Only work for LinearLayoutManager
  **/
 public class Paginate {
